@@ -24,8 +24,8 @@
 3. 在重写的 `clone()` 方法中, 按照惯例通常是返回 `super.clone()` 向下转型后的值, 但是在执行返回语句之前, 需要单独处理该类中可变的 (mutable, 即: 非final的) 引用类型的字段的深拷贝.
 
 ## 参考资料:
-- [JDK-Cloneable](https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html)
-- [JDK-Object#clone()](https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#clone())
+- [Oracle-docs-Cloneable](https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html)
+- [Oracle-docs-Object#clone()](https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#clone())
 - [how-clone-method-works-in-java](http://javarevisited.blogspot.jp/2013/09/how-clone-method-works-in-java.html)
 - [java-clone-tutorial-part-2-overriding-with-mutable-field-example](http://javarevisited.blogspot.jp/2015/01/java-clone-tutorial-part-2-overriding-with-mutable-field-example.html)
 - [how-to-clone-collection-in-java-deep-copy-vs-shallow](http://javarevisited.blogspot.jp/2014/03/how-to-clone-collection-in-java-deep-copy-vs-shallow.html)
