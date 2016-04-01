@@ -32,10 +32,10 @@ import java.util.Set;
 public class CloneDemo {
 
     private static Programmer original;
-	private static Programmer clone;
+    private static Programmer clone;
 
-	public static void main(String args[]) {
-		// 一个30岁的程序员John
+    public static void main(String args[]) {
+	// 一个30岁的程序员John
         original = new Programmer("John", 30);
         // 30岁获得了证书A
         original.addCertificate("A");
@@ -76,21 +76,21 @@ public class CloneDemo {
         // 由于这几年一直从事Java开发, 所以PHP逐渐淡忘了, 但由于工作中也经常做JNI的开发, 所以依然熟练掌握着 C++.
         String[] skilledLanguages = original.getSkilledLanguages();
         for (int i = 0; i < skilledLanguages.length; i++) {
-        	String language = skilledLanguages[i];
-        	if ("PHP".equals(language)) {
-        		skilledLanguages[i] = "Java";
-        		original.setSkilledLanguages(skilledLanguages);
-        		break;
-        	}
+	    String language = skilledLanguages[i];
+	    if ("PHP".equals(language)) {
+		skilledLanguages[i] = "Java";
+		original.setSkilledLanguages(skilledLanguages);
+		break;
+	    }
         }
         System.out.println("--------- Change skilled languages to C++ & Java ------------------------");
         print();
     }
 
-	private static void print() {
-		System.out.println("Original programmerA : " + System.lineSeparator() + original);
+    private static void print() {
+	System.out.println("Original programmerA : " + System.lineSeparator() + original);
         System.out.println("Clone of programmerA : " + System.lineSeparator() + clone + System.getProperty("line.separator"));
-	}
+    }
 }
 
 /**
@@ -149,10 +149,10 @@ class Programmer implements Cloneable {
     }
     
     public String[] getSkilledLanguages() {
-		return skilledLanguages;
-	}
+	return skilledLanguages;
+    }
 
-	@Override
+    @Override
     public String toString() {
     	StringBuilder sb = new StringBuilder();
     	sb.append(name).append(", ").append(age).append(", ").append(System.lineSeparator())
@@ -161,11 +161,11 @@ class Programmer implements Cloneable {
     	  .append("depositCardsBalances: ").append(depositCardsBalances.toString()).append(", ").append(System.lineSeparator());
     	
     	if (skilledLanguages != null) {
-    		sb.append("skilledLanguages: ");
-        	for (String language : skilledLanguages) {
-        		sb.append(language).append(", ");
-        	}
-        	sb.append(System.lineSeparator());
+    	    sb.append("skilledLanguages: ");
+	    for (String language : skilledLanguages) {
+		sb.append(language).append(", ");
+  	    }
+	    sb.append(System.lineSeparator());
     	}
     	
     	return sb.toString();
@@ -175,7 +175,7 @@ class Programmer implements Cloneable {
     protected Programmer clone() {
         Programmer clone = null;
         try {
-        	// super.clone()默认是浅拷贝.
+	    // super.clone()默认是浅拷贝.
             clone = (Programmer) super.clone();
             clone.certifications = new ArrayList(certifications); //deep copying
             clone.hobbies = new HashSet(hobbies); //deep copying
@@ -186,7 +186,7 @@ class Programmer implements Cloneable {
             }
            
         } catch(CloneNotSupportedException cns) {
-        	System.out.println("Error while cloning programmer" + cns);
+	    System.out.println("Error while cloning programmer" + cns);
         }
         // 基本类型的字段, 不可变的(immutable, 即: final的)引用类型字段(如: String, Integer等基本类型的包装类)是无需处理的, 
         // 直接使用super.clone()的浅拷贝即可, 但是其他引用类型的字段必须单独处理各自的深拷贝.
@@ -198,22 +198,22 @@ class Programmer implements Cloneable {
  * 业余爱好
  */
 class Hobby {
-	private String name;
+    private String name;
 
-	public Hobby(String name) {
-		this.name = name;
-	}
+    public Hobby(String name) {
+	this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public String toString() {
-		return name;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
+
+    @Override
+    public String toString() {
+	return name;
+    }
 }
